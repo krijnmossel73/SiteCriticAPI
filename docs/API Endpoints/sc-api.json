@@ -1,0 +1,3592 @@
+{
+  "openapi": "3.0.0",
+  "tags": [
+    {
+      "name": "List Businesses"
+    },
+    {
+      "name": "Extract Slug"
+    },
+    {
+      "name": "Get business details"
+    },
+    {
+      "name": "Get reviews"
+    },
+    {
+      "name": "Get vehicle review URLs by OEM"
+    },
+    {
+      "name": "Get vehicle review URLs by OEM and Model"
+    },
+    {
+      "name": "Get vehicle review URLs by OEM, Model, and Year"
+    },
+    {
+      "name": "Get vehicle reviews by OEM"
+    },
+    {
+      "name": "Get vehicle reviews by OEM and Model"
+    },
+    {
+      "name": "Get vehicle reviews by OEM, Model, and Year"
+    }
+  ],
+  "info": {
+    "title": "API Endpoints",
+    "version": "1.0",
+    "contact": {
+      "name": "none"
+    },
+    "description": "SureCritic's main API"
+  },
+  "servers": [
+    {
+      "url": "https://scstaging.surecritic.com/api",
+      "description": "SC staging env"
+    }
+  ],
+  "paths": {
+    "/pub/businesses/extract_slug.json": {
+      "get": {
+        "summary": "Extracts Slug (JSON)",
+        "description": "Extracts a business’s slug from it’s full BRP url",
+        "operationId": "get_extract_slug.json",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/brp_url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/slug-response-schema"
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "tags": [
+          "Extract Slug"
+        ]
+      },
+      "parameters": []
+    },
+    "/pub/businesses/extract_slug.jsonp": {
+      "get": {
+        "summary": "Extracts Slug (JSONP)",
+        "description": "Extracts a business’s slug from it’s full BRP url",
+        "operationId": "get_extract_slug.jsonp",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/brp_url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!!",
+            "content": {
+              "application/jsonp": {
+                "schema": {
+                  "$ref": "#/components/schemas/slug-response-schema"
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "tags": [
+          "Extract Slug"
+        ]
+      },
+      "parameters": []
+    },
+    "/pub/businesses/extract_slug.xml": {
+      "get": {
+        "summary": "Extracts Slug (XML)",
+        "description": "Extracts a business’s slug from it’s full BRP url",
+        "operationId": "get_extract_slug.xml",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/brp_url"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/slug-response-schema"
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "tags": [
+          "Extract Slug"
+        ]
+      },
+      "parameters": []
+    },
+    "/pub/businesses.json": {
+      "get": {
+        "summary": "Get list of businesses (JSON)",
+        "tags": [
+          "List Businesses"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/business-list-response"
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-businesses.json",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "term",
+            "description": "a string to be used in text-based searches"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lat",
+            "description": "Geographic latitude in decimal degrees. When paired with lng, it forms geographic coordinates to center your search around."
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lng",
+            "description": "Geographic longitude in decimal degrees. When paired with lat, it forms geographic coordinates to center your search around."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "postcode",
+            "description": "In most cases, a 5-digit United States ZIP code, used to filter your search results to the center of this area."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "radius",
+            "description": "The radius of the search, measured in miles, to search around your geographic coordinates is used with either lat/lng or postcode. It defaults to 25 miles. It will clamp the range to be between 5 and 250 miles."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "The page number for the request. The default page is 1."
+          }
+        ],
+        "description": "Returns a paginated list of businesses based on keywords and/or location. The API returns up\nto 30 businesses per request. Results are sorted by relevance or distance depending on\nsubmitted parameters."
+      },
+      "parameters": []
+    },
+    "/pub/businesses.jsonp": {
+      "get": {
+        "summary": "Get list of businesses (JSONP)",
+        "tags": [
+          "List Businesses"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/jsonp": {
+                "schema": {
+                  "$ref": "#/components/schemas/business-list-response"
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-businesses.jsonp",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "term",
+            "description": "a string to be used in text-based searches"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lat",
+            "description": "Geographic latitude in decimal degrees. When paired with lng, it forms geographic coordinates to center your search around."
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lng",
+            "description": "Geographic longitude in decimal degrees. When paired with lat, it forms geographic coordinates to center your search around."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "postcode",
+            "description": "In most cases, a 5-digit United States ZIP code, used to filter your search results to the center of this area."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "radius",
+            "description": "The radius of the search, measured in miles, to search around your geographic coordinates is used with either lat/lng or postcode. It defaults to 25 miles. It will clamp the range to be between 5 and 250 miles."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "The page number for the request. The default page is 1."
+          }
+        ],
+        "description": "Returns a paginated list of businesses based on keywords and/or location. The API returns up\nto 30 businesses per request. Results are sorted by relevance or distance depending on\nsubmitted parameters."
+      },
+      "parameters": []
+    },
+    "/pub/businesses.xml": {
+      "get": {
+        "summary": "Get list of businesses (XML)",
+        "tags": [
+          "List Businesses"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/business-list-response"
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-businesses.xml",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "term",
+            "description": "a string to be used in text-based searches"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lat",
+            "description": "Geographic latitude in decimal degrees. When paired with lng, it forms geographic coordinates to center your search around."
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lng",
+            "description": "Geographic longitude in decimal degrees. When paired with lat, it forms geographic coordinates to center your search around."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "postcode",
+            "description": "In most cases, a 5-digit United States ZIP code, used to filter your search results to the center of this area."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "radius",
+            "description": "The radius of the search, measured in miles, to search around your geographic coordinates is used with either lat/lng or postcode. It defaults to 25 miles. It will clamp the range to be between 5 and 250 miles."
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "page",
+            "description": "The page number for the request. The default page is 1."
+          }
+        ],
+        "description": "Returns a paginated list of businesses based on keywords and/or location. The API returns up\nto 30 businesses per request. Results are sorted by relevance or distance depending on\nsubmitted parameters."
+      },
+      "parameters": []
+    },
+    "/pub/businesses/{slug-or-id-dot-format}": {
+      "get": {
+        "summary": "Returns a business’s details (JSON,JSONP,XML)",
+        "tags": [
+          "Get business details"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "business": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name",
+                        "slug",
+                        "brp_url",
+                        "review_count",
+                        "review_count_verified",
+                        "review_count_unverified",
+                        "rating_avg",
+                        "rating_avg_verified",
+                        "rating_avg_unverified",
+                        "recommend_pct",
+                        "rescore_count",
+                        "review_count_90_day",
+                        "review_count_90_day_verified",
+                        "review_count_90_day_unverified",
+                        "rescore_count_90_day",
+                        "address",
+                        "phone",
+                        "website",
+                        "email_address"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "slug": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "brp_url": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "review_count": {
+                          "type": "number"
+                        },
+                        "review_count_verified": {
+                          "type": "number"
+                        },
+                        "review_count_unverified": {
+                          "type": "number"
+                        },
+                        "rating_avg": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "rating_avg_verified": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "rating_avg_unverified": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "recommend_pct": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "rescore_count": {
+                          "type": "number"
+                        },
+                        "review_count_90_day": {
+                          "type": "number"
+                        },
+                        "review_count_90_day_verified": {
+                          "type": "number"
+                        },
+                        "review_count_90_day_unverified": {
+                          "type": "number"
+                        },
+                        "rating_avg_90_day": {},
+                        "rating_avg_90_day_verified": {},
+                        "rating_avg_90_day_unverified": {},
+                        "recommend_pct_90_day": {},
+                        "rescore_count_90_day": {
+                          "type": "number"
+                        },
+                        "departments": {
+                          "type": "array",
+                          "minItems": 0,
+                          "items": {}
+                        },
+                        "address": {
+                          "type": "object",
+                          "required": [
+                            "line_1",
+                            "line_2",
+                            "line_3",
+                            "municipality",
+                            "postcode",
+                            "region",
+                            "latitude",
+                            "longitude"
+                          ],
+                          "properties": {
+                            "line_1": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "line_2": {
+                              "type": "string"
+                            },
+                            "line_3": {
+                              "type": "string"
+                            },
+                            "municipality": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "postcode": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "region": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "country": {},
+                            "latitude": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "longitude": {
+                              "type": "string",
+                              "minLength": 1
+                            }
+                          }
+                        },
+                        "phone": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "website": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "email_address": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "business"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "business": {
+                        "id": 1,
+                        "name": "ARA Collision CARSTAR Everett",
+                        "slug": "ara-collision-carstar",
+                        "brp_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar",
+                        "review_count": 2723,
+                        "review_count_verified": 2719,
+                        "review_count_unverified": 4,
+                        "rating_avg": "4.7537707",
+                        "rating_avg_verified": "4.7541188",
+                        "rating_avg_unverified": "4.5",
+                        "recommend_pct": "97.69759",
+                        "rescore_count": 0,
+                        "review_count_90_day": 0,
+                        "review_count_90_day_verified": 0,
+                        "review_count_90_day_unverified": 0,
+                        "rating_avg_90_day": null,
+                        "rating_avg_90_day_verified": null,
+                        "rating_avg_90_day_unverified": null,
+                        "recommend_pct_90_day": null,
+                        "rescore_count_90_day": 0,
+                        "departments": [],
+                        "address": {
+                          "line_1": "10721 Evergreen Way South Ste D  ",
+                          "line_2": "",
+                          "line_3": "",
+                          "municipality": "Everett",
+                          "postcode": "98204 ",
+                          "region": "WA",
+                          "country": null,
+                          "latitude": "47.9008151",
+                          "longitude": "-122.2477803"
+                        },
+                        "phone": "(425) 355-3002 ",
+                        "website": "http://www.carstar.com/store/ara-carstar-everett-everett-washington",
+                        "email_address": "aramanager@comcast.net"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "description": "The business or other entity you requested could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "errors"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "errors": "could not find business with id = corys-magic-carpets"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          }
+        },
+        "operationId": "get-businesses",
+        "description": "Returns a business’s details"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "slug-or-id-dot-format",
+          "in": "path",
+          "required": true,
+          "description": "The slug OR the id of a business, followed by a period and the format (JSON,JSONP,XML)"
+        }
+      ]
+    },
+    "/pub/businesses/{slug-or-id}/reviews.json": {
+      "get": {
+        "summary": "Get reviews (JSON)",
+        "tags": [
+          "Get reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "business": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "reviews": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "review_url": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "department_id": {},
+                          "rating": {
+                            "type": "number"
+                          },
+                          "recommends": {
+                            "type": "boolean"
+                          },
+                          "has_rescore": {
+                            "type": "boolean"
+                          },
+                          "display_name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "location": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "title": {},
+                          "comments": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "verified": {
+                            "type": "boolean"
+                          },
+                          "created_date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "service_date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "year": {},
+                          "make": {},
+                          "model": {},
+                          "rescored_review": {},
+                          "responses": {
+                            "type": "array",
+                            "items": {}
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "review_url",
+                          "rating",
+                          "recommends",
+                          "has_rescore",
+                          "display_name",
+                          "location",
+                          "comments",
+                          "verified",
+                          "created_date",
+                          "service_date"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "business",
+                    "reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "business": {
+                        "id": 1,
+                        "name": "ARA Collision CARSTAR Everett"
+                      },
+                      "reviews": [
+                        {
+                          "id": 1287463,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=1287463",
+                          "department_id": null,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Oxypyo G.",
+                          "location": "Everett, WA",
+                          "title": "Awesome!!!!",
+                          "comments": "I just recently brought my brand new car in to get fixed and they did such an awesome job! They were so nice and friendly and made my car look as good as new! They went above and beyond and I thank you all for working so well on my car!!!",
+                          "verified": false,
+                          "created_date": "2015-08-27",
+                          "service_date": "2015-08-25",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 1188841,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=1188841",
+                          "department_id": null,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Qojyq R.",
+                          "location": "Lynnwood, WA",
+                          "title": "A five star shop all the way around",
+                          "comments": "This shop deserves a five star rating. From the time you step through the front door until you pick up your car when it's done, and see the quality of the work they've done. the Best !!",
+                          "verified": false,
+                          "created_date": "2015-06-25",
+                          "service_date": "2015-05-28",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 62369,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=62369",
+                          "department_id": null,
+                          "rating": 3,
+                          "recommends": false,
+                          "has_rescore": false,
+                          "display_name": "Ptfyg l.",
+                          "location": "Snohomish, WA",
+                          "title": "Not done right the first time.",
+                          "comments": "Went to pick the car up, quickly noticed the wiring dangling under the car, which they fixed.\r\nNow I just found the CD changer in the back seat as well as the cover. Mounting screws are nowhere to be found.  Called them at their tech claimed that they never removed the CD changer.  Don't have time to keep bringing the car back for low quality work.  I'll do it myself, and find a different body shop for next time.",
+                          "verified": false,
+                          "created_date": "2012-03-09",
+                          "service_date": "2012-03-06",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 24727,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=24727",
+                          "department_id": null,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Gtobu O.",
+                          "location": "Everett, WA",
+                          "title": "Quality Service",
+                          "comments": "Forced to get a quote from ARA by other insurance company but decided to go with them due to professionalism and location. Grabbed a new windshield from the shop next door and also got my rental from Enterprise located in the same complex. Very easy to work with. Would highly recommend to others.  ",
+                          "verified": false,
+                          "created_date": "2011-09-23",
+                          "service_date": "2011-09-22",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 21861,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=21861",
+                          "department_id": 3,
+                          "rating": 4,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Qojyq N.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "David said it took 1 week longer than promised because they were waiting for parts to arrive. He had a good experience.",
+                          "verified": true,
+                          "created_date": "2011-09-03",
+                          "service_date": "2011-07-11",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 18170,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=18170",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Cozuxo Z.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Pamela said the business is super flexible. She was supposed to bring her vehicle in on a Tuesday, but there was a three hour ferry line so the business switched her appointment to Wedensday. They even  contacted the rental place about the change.",
+                          "verified": true,
+                          "created_date": "2011-08-24",
+                          "service_date": "2011-07-08",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 18168,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=18168",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Faq V.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Rod said this business was on a list from Encompass Insurance and he got estimates from 3 or 4 other places, but this business was the lowest. Their location was also very convenient to his workplace.",
+                          "verified": true,
+                          "created_date": "2011-08-24",
+                          "service_date": "2011-07-12",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 18167,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=18167",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Vyz F.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Jim said he was out of town while his vehicle was being repaired and it was not necessary to keep him informed.",
+                          "verified": true,
+                          "created_date": "2011-08-24",
+                          "service_date": "2011-08-02",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 17481,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=17481",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Zofgto F.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Marsha said they did a pretty good job.",
+                          "verified": true,
+                          "created_date": "2011-08-23",
+                          "service_date": "2011-07-22",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 16905,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=16905",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Obbo S.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Anna stated that the repairs took three extra days because the business was waiting for parts to be delivered.",
+                          "verified": true,
+                          "created_date": "2011-08-22",
+                          "service_date": "2011-07-12",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-reviews.json",
+        "description": "This resource will provide the most recent reviews for a business.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "count",
+            "description": "The number of reviews to return. If not specified, the default of 10 will be returned. We will never return more than 50."
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "slug-or-id",
+          "in": "path",
+          "required": true,
+          "description": "The slug OR the id of a business"
+        }
+      ]
+    },
+    "/pub/businesses/{slug-or-id}/reviews.jsonp": {
+      "get": {
+        "summary": "Get reviews (JSONP).",
+        "tags": [
+          "Get reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/jsonp": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "business": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "reviews": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "review_url": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "department_id": {},
+                          "rating": {
+                            "type": "number"
+                          },
+                          "recommends": {
+                            "type": "boolean"
+                          },
+                          "has_rescore": {
+                            "type": "boolean"
+                          },
+                          "display_name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "location": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "title": {},
+                          "comments": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "verified": {
+                            "type": "boolean"
+                          },
+                          "created_date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "service_date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "year": {},
+                          "make": {},
+                          "model": {},
+                          "rescored_review": {},
+                          "responses": {
+                            "type": "array",
+                            "items": {}
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "review_url",
+                          "rating",
+                          "recommends",
+                          "has_rescore",
+                          "display_name",
+                          "location",
+                          "title",
+                          "comments",
+                          "verified",
+                          "created_date",
+                          "service_date"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "business",
+                    "reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "business": {
+                        "id": 1,
+                        "name": "ARA Collision CARSTAR Everett"
+                      },
+                      "reviews": [
+                        {
+                          "id": 1287463,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=1287463",
+                          "department_id": null,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Oxypyo G.",
+                          "location": "Everett, WA",
+                          "title": "Awesome!!!!",
+                          "comments": "I just recently brought my brand new car in to get fixed and they did such an awesome job! They were so nice and friendly and made my car look as good as new! They went above and beyond and I thank you all for working so well on my car!!!",
+                          "verified": false,
+                          "created_date": "2015-08-27",
+                          "service_date": "2015-08-25",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 1188841,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=1188841",
+                          "department_id": null,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Qojyq R.",
+                          "location": "Lynnwood, WA",
+                          "title": "A five star shop all the way around",
+                          "comments": "This shop deserves a five star rating. From the time you step through the front door until you pick up your car when it's done, and see the quality of the work they've done. the Best !!",
+                          "verified": false,
+                          "created_date": "2015-06-25",
+                          "service_date": "2015-05-28",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 62369,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=62369",
+                          "department_id": null,
+                          "rating": 3,
+                          "recommends": false,
+                          "has_rescore": false,
+                          "display_name": "Ptfyg l.",
+                          "location": "Snohomish, WA",
+                          "title": "Not done right the first time.",
+                          "comments": "Went to pick the car up, quickly noticed the wiring dangling under the car, which they fixed.\r\nNow I just found the CD changer in the back seat as well as the cover. Mounting screws are nowhere to be found.  Called them at their tech claimed that they never removed the CD changer.  Don't have time to keep bringing the car back for low quality work.  I'll do it myself, and find a different body shop for next time.",
+                          "verified": false,
+                          "created_date": "2012-03-09",
+                          "service_date": "2012-03-06",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 24727,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=24727",
+                          "department_id": null,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Gtobu O.",
+                          "location": "Everett, WA",
+                          "title": "Quality Service",
+                          "comments": "Forced to get a quote from ARA by other insurance company but decided to go with them due to professionalism and location. Grabbed a new windshield from the shop next door and also got my rental from Enterprise located in the same complex. Very easy to work with. Would highly recommend to others.  ",
+                          "verified": false,
+                          "created_date": "2011-09-23",
+                          "service_date": "2011-09-22",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 21861,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=21861",
+                          "department_id": 3,
+                          "rating": 4,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Qojyq N.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "David said it took 1 week longer than promised because they were waiting for parts to arrive. He had a good experience.",
+                          "verified": true,
+                          "created_date": "2011-09-03",
+                          "service_date": "2011-07-11",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 18170,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=18170",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Cozuxo Z.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Pamela said the business is super flexible. She was supposed to bring her vehicle in on a Tuesday, but there was a three hour ferry line so the business switched her appointment to Wedensday. They even  contacted the rental place about the change.",
+                          "verified": true,
+                          "created_date": "2011-08-24",
+                          "service_date": "2011-07-08",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 18168,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=18168",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Faq V.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Rod said this business was on a list from Encompass Insurance and he got estimates from 3 or 4 other places, but this business was the lowest. Their location was also very convenient to his workplace.",
+                          "verified": true,
+                          "created_date": "2011-08-24",
+                          "service_date": "2011-07-12",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 18167,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=18167",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Vyz F.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Jim said he was out of town while his vehicle was being repaired and it was not necessary to keep him informed.",
+                          "verified": true,
+                          "created_date": "2011-08-24",
+                          "service_date": "2011-08-02",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 17481,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=17481",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Zofgto F.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Marsha said they did a pretty good job.",
+                          "verified": true,
+                          "created_date": "2011-08-23",
+                          "service_date": "2011-07-22",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        },
+                        {
+                          "id": 16905,
+                          "review_url": "https://scstaging.surecritic.com/reviews/ara-collision-carstar?review_id=16905",
+                          "department_id": 3,
+                          "rating": 5,
+                          "recommends": true,
+                          "has_rescore": false,
+                          "display_name": "Obbo S.",
+                          "location": "WA",
+                          "title": null,
+                          "comments": "Anna stated that the repairs took three extra days because the business was waiting for parts to be delivered.",
+                          "verified": true,
+                          "created_date": "2011-08-22",
+                          "service_date": "2011-07-12",
+                          "year": null,
+                          "make": null,
+                          "model": null,
+                          "rescored_review": null,
+                          "responses": []
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-reviews.jsonp",
+        "description": "This resource will provide the most recent reviews for a business.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "count",
+            "description": "The number of reviews to return. If not specified, the default of 10 will be returned. We will never return more than 50."
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "slug-or-id",
+          "in": "path",
+          "required": true,
+          "description": "The slug OR the id of a business"
+        }
+      ]
+    },
+    "/pub/businesses/{slug-or-id}/reviews.xml": {
+      "get": {
+        "summary": "Get reviews (XML).",
+        "tags": [
+          "Get reviews"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "business": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      }
+                    },
+                    "reviews": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "review_url": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "department_id": {},
+                          "rating": {
+                            "type": "number"
+                          },
+                          "recommends": {
+                            "type": "boolean"
+                          },
+                          "has_rescore": {
+                            "type": "boolean"
+                          },
+                          "display_name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "location": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "title": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "comments": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "verified": {
+                            "type": "boolean"
+                          },
+                          "created_date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "service_date": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "year": {},
+                          "make": {},
+                          "model": {},
+                          "rescored_review": {},
+                          "responses": {
+                            "type": "array",
+                            "items": {}
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "review_url",
+                          "rating",
+                          "recommends",
+                          "has_rescore",
+                          "display_name",
+                          "location",
+                          "title",
+                          "comments",
+                          "verified",
+                          "created_date",
+                          "service_date"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "business",
+                    "reviews"
+                  ]
+                },
+                "examples": {}
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-reviews.xml",
+        "description": "This resource will provide the most recent reviews for a business.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "in": "query",
+            "name": "count",
+            "description": "The number of reviews to return. If not specified, the default of 10 will be returned. We will never return more than 50."
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "slug-or-id",
+          "in": "path",
+          "required": true,
+          "description": "The slug OR the id of a business"
+        }
+      ]
+    },
+    "/vehicle/{make}.json": {
+      "get": {
+        "summary": "Get vehicle review URLs by OEM (JSON)",
+        "tags": [
+          "Get vehicle review URLs by OEM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "vehicles": {
+                      "type": "object",
+                      "properties": {
+                        "make": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "reviews": {
+                          "type": "number"
+                        },
+                        "overall-rating": {},
+                        "recommend-vehicle": {},
+                        "comfort": {},
+                        "build-quality": {},
+                        "performance": {},
+                        "fun-to-drive": {},
+                        "features": {},
+                        "value-for-the-money": {},
+                        "reliability": {},
+                        "overall-styling": {},
+                        "interior-design": {},
+                        "exterior-design": {}
+                      },
+                      "required": [
+                        "make",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "vehicles"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "vehicles": {
+                        "make": "toyota",
+                        "reviews": 0,
+                        "overall-rating": null,
+                        "recommend-vehicle": null,
+                        "comfort": null,
+                        "build-quality": null,
+                        "performance": null,
+                        "fun-to-drive": null,
+                        "features": null,
+                        "value-for-the-money": null,
+                        "reliability": null,
+                        "overall-styling": null,
+                        "interior-design": null,
+                        "exterior-design": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle.json",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        }
+      ]
+    },
+    "/vehicle/{make}.xml": {
+      "get": {
+        "summary": "Get vehicle review URLs by OEM (XML)",
+        "tags": [
+          "Get vehicle review URLs by OEM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "vehicles": {
+                      "type": "object",
+                      "properties": {
+                        "make": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "reviews": {
+                          "type": "number"
+                        },
+                        "overall-rating": {},
+                        "recommend-vehicle": {},
+                        "comfort": {},
+                        "build-quality": {},
+                        "performance": {},
+                        "fun-to-drive": {},
+                        "features": {},
+                        "value-for-the-money": {},
+                        "reliability": {},
+                        "overall-styling": {},
+                        "interior-design": {},
+                        "exterior-design": {}
+                      },
+                      "required": [
+                        "make",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "vehicles"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "vehicles": {
+                        "make": "toyota",
+                        "reviews": 0,
+                        "overall-rating": null,
+                        "recommend-vehicle": null,
+                        "comfort": null,
+                        "build-quality": null,
+                        "performance": null,
+                        "fun-to-drive": null,
+                        "features": null,
+                        "value-for-the-money": null,
+                        "reliability": null,
+                        "overall-styling": null,
+                        "interior-design": null,
+                        "exterior-design": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle.xml",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}.json": {
+      "get": {
+        "summary": "Get vehicle review URLs by OEM and Model (JSON)",
+        "tags": [
+          "Get vehicle review URLs by OEM and Model"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "vehicles": {
+                      "type": "object",
+                      "properties": {
+                        "make": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "reviews": {
+                          "type": "number"
+                        },
+                        "overall-rating": {},
+                        "recommend-vehicle": {},
+                        "comfort": {},
+                        "build-quality": {},
+                        "performance": {},
+                        "fun-to-drive": {},
+                        "features": {},
+                        "value-for-the-money": {},
+                        "reliability": {},
+                        "overall-styling": {},
+                        "interior-design": {},
+                        "exterior-design": {}
+                      },
+                      "required": [
+                        "make",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "vehicles"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "vehicles": {
+                        "make": "toyota",
+                        "reviews": 0,
+                        "overall-rating": null,
+                        "recommend-vehicle": null,
+                        "comfort": null,
+                        "build-quality": null,
+                        "performance": null,
+                        "fun-to-drive": null,
+                        "features": null,
+                        "value-for-the-money": null,
+                        "reliability": null,
+                        "overall-styling": null,
+                        "interior-design": null,
+                        "exterior-design": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-make-model.json",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}.xml": {
+      "get": {
+        "summary": "Get vehicle review URLs by OEM and Model (XML)",
+        "tags": [
+          "Get vehicle review URLs by OEM and Model"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "vehicles": {
+                      "type": "object",
+                      "properties": {
+                        "make": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "reviews": {
+                          "type": "number"
+                        },
+                        "overall-rating": {},
+                        "recommend-vehicle": {},
+                        "comfort": {},
+                        "build-quality": {},
+                        "performance": {},
+                        "fun-to-drive": {},
+                        "features": {},
+                        "value-for-the-money": {},
+                        "reliability": {},
+                        "overall-styling": {},
+                        "interior-design": {},
+                        "exterior-design": {}
+                      },
+                      "required": [
+                        "make",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "vehicles"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "vehicles": {
+                        "make": "toyota",
+                        "reviews": 0,
+                        "overall-rating": null,
+                        "recommend-vehicle": null,
+                        "comfort": null,
+                        "build-quality": null,
+                        "performance": null,
+                        "fun-to-drive": null,
+                        "features": null,
+                        "value-for-the-money": null,
+                        "reliability": null,
+                        "overall-styling": null,
+                        "interior-design": null,
+                        "exterior-design": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-make-model.xml",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}/{year}.json": {
+      "get": {
+        "summary": "Get vehicle review URLs by OEM, Model, and Year (JSON)",
+        "tags": [
+          "Get vehicle review URLs by OEM, Model, and Year"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "vehicles": {
+                      "type": "object",
+                      "properties": {
+                        "make": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "reviews": {
+                          "type": "number"
+                        },
+                        "overall-rating": {},
+                        "recommend-vehicle": {},
+                        "comfort": {},
+                        "build-quality": {},
+                        "performance": {},
+                        "fun-to-drive": {},
+                        "features": {},
+                        "value-for-the-money": {},
+                        "reliability": {},
+                        "overall-styling": {},
+                        "interior-design": {},
+                        "exterior-design": {}
+                      },
+                      "required": [
+                        "make",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "vehicles"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "vehicles": {
+                        "make": "toyota",
+                        "reviews": 0,
+                        "overall-rating": null,
+                        "recommend-vehicle": null,
+                        "comfort": null,
+                        "build-quality": null,
+                        "performance": null,
+                        "fun-to-drive": null,
+                        "features": null,
+                        "value-for-the-money": null,
+                        "reliability": null,
+                        "overall-styling": null,
+                        "interior-design": null,
+                        "exterior-design": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-make-model-year.json",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "year",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle year"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}/{year}.xml": {
+      "get": {
+        "summary": "Get vehicle review URLs by OEM, Model, and Year (XML)",
+        "tags": [
+          "Get vehicle review URLs by OEM, Model, and Year"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "vehicles": {
+                      "type": "object",
+                      "properties": {
+                        "make": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "reviews": {
+                          "type": "number"
+                        },
+                        "overall-rating": {},
+                        "recommend-vehicle": {},
+                        "comfort": {},
+                        "build-quality": {},
+                        "performance": {},
+                        "fun-to-drive": {},
+                        "features": {},
+                        "value-for-the-money": {},
+                        "reliability": {},
+                        "overall-styling": {},
+                        "interior-design": {},
+                        "exterior-design": {}
+                      },
+                      "required": [
+                        "make",
+                        "reviews"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "vehicles"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "vehicles": {
+                        "make": "toyota",
+                        "reviews": 0,
+                        "overall-rating": null,
+                        "recommend-vehicle": null,
+                        "comfort": null,
+                        "build-quality": null,
+                        "performance": null,
+                        "fun-to-drive": null,
+                        "features": null,
+                        "value-for-the-money": null,
+                        "reliability": null,
+                        "overall-styling": null,
+                        "interior-design": null,
+                        "exterior-design": null
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-make-model-year.xml",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "year",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle year"
+        }
+      ]
+    },
+    "/vehicle/{make}/reviews.json": {
+      "get": {
+        "summary": "Get vehicle reviews by OEM (JSON)",
+        "tags": [
+          "Get vehicle reviews by OEM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "total_entries": {
+                      "type": "number"
+                    },
+                    "total_pages": {
+                      "type": "number"
+                    },
+                    "make": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicle_reviews": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "current_page",
+                    "per_page",
+                    "total_entries",
+                    "total_pages",
+                    "make",
+                    "vehicle_reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_entries": 0,
+                      "total_pages": 0,
+                      "make": "hyundai",
+                      "vehicle_reviews": []
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-reviews.json",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        }
+      ]
+    },
+    "/vehicle/{make}/reviews.xml": {
+      "get": {
+        "summary": "Get vehicle reviews by OEM (XML)",
+        "tags": [
+          "Get vehicle reviews by OEM"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "total_entries": {
+                      "type": "number"
+                    },
+                    "total_pages": {
+                      "type": "number"
+                    },
+                    "make": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicle_reviews": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "current_page",
+                    "per_page",
+                    "total_entries",
+                    "total_pages",
+                    "make",
+                    "vehicle_reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_entries": 0,
+                      "total_pages": 0,
+                      "make": "hyundai",
+                      "vehicle_reviews": []
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-reviews.xml",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}/reviews.json": {
+      "get": {
+        "summary": "Get vehicle reviews by OEM and Model (JSON)",
+        "tags": [
+          "Get vehicle reviews by OEM and Model"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "total_entries": {
+                      "type": "number"
+                    },
+                    "total_pages": {
+                      "type": "number"
+                    },
+                    "make": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicle_reviews": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "current_page",
+                    "per_page",
+                    "total_entries",
+                    "total_pages",
+                    "make",
+                    "vehicle_reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_entries": 0,
+                      "total_pages": 0,
+                      "make": "hyundai",
+                      "vehicle_reviews": []
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-reviews-make-model.json",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}/reviews.xml": {
+      "get": {
+        "summary": "Get vehicle reviews by OEM and Model (XML)",
+        "tags": [
+          "Get vehicle reviews by OEM and Model"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "total_entries": {
+                      "type": "number"
+                    },
+                    "total_pages": {
+                      "type": "number"
+                    },
+                    "make": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicle_reviews": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "current_page",
+                    "per_page",
+                    "total_entries",
+                    "total_pages",
+                    "make",
+                    "vehicle_reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_entries": 0,
+                      "total_pages": 0,
+                      "make": "hyundai",
+                      "vehicle_reviews": []
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-reviews-make-model.xml",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}/{year}/reviews.json": {
+      "get": {
+        "summary": "Get vehicle reviews by OEM, Model, and Year (JSON)",
+        "tags": [
+          "Get vehicle reviews by OEM, Model, and Year"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "total_entries": {
+                      "type": "number"
+                    },
+                    "total_pages": {
+                      "type": "number"
+                    },
+                    "make": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicle_reviews": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "current_page",
+                    "per_page",
+                    "total_entries",
+                    "total_pages",
+                    "make",
+                    "vehicle_reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_entries": 0,
+                      "total_pages": 0,
+                      "make": "hyundai",
+                      "vehicle_reviews": []
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-reviews-make-model-year.json",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "year",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle year"
+        }
+      ]
+    },
+    "/vehicle/{make}/{model}/{year}/reviews.xml": {
+      "get": {
+        "summary": "Get vehicle reviews by OEM, Model, and Year (XML)",
+        "tags": [
+          "Get vehicle reviews by OEM, Model, and Year"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success!",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "total_entries": {
+                      "type": "number"
+                    },
+                    "total_pages": {
+                      "type": "number"
+                    },
+                    "make": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "vehicle_reviews": {
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "current_page",
+                    "per_page",
+                    "total_entries",
+                    "total_pages",
+                    "make",
+                    "vehicle_reviews"
+                  ]
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "current_page": 1,
+                      "per_page": 100,
+                      "total_entries": 0,
+                      "total_pages": 0,
+                      "make": "hyundai",
+                      "vehicle_reviews": []
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "cache-control": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Generally contains: \"max-age=0, private, must-revalidate\""
+              },
+              "content-length": {
+                "schema": {
+                  "type": "integer"
+                },
+                "description": "Size of content in bytes"
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "MIME type and charset"
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          }
+        },
+        "operationId": "get-vehicle-reviews-make-model-year.xml",
+        "description": "These are the primary resources for querying the vehicle reviews resources information from SureCritic.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_slug"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "business_external_id"
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "make",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle make (OEM)"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "model",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle model"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "year",
+          "in": "path",
+          "required": true,
+          "description": "Vehicle year"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "slug-response-schema": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "brp_url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "brp_url",
+          "slug"
+        ],
+        "x-examples": {
+          "example-1": {
+            "brp_url": "https://www.surecritic.com/reviews/corys-magic-carpets",
+            "slug": "corys-magic-carpets"
+          }
+        }
+      },
+      "business-list-response": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "current_page": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "#text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "@type",
+              "#text"
+            ]
+          },
+          "per_page": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "#text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "@type",
+              "#text"
+            ]
+          },
+          "total_entries": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "#text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "@type",
+              "#text"
+            ]
+          },
+          "total_pages": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "#text": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "@type",
+              "#text"
+            ]
+          },
+          "businesses": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "string",
+                "minLength": 1
+              },
+              "business": {
+                "type": "array",
+                "uniqueItems": true,
+                "minItems": 1,
+                "items": {
+                  "required": [
+                    "name",
+                    "slug",
+                    "brp_url"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "#text": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "#text"
+                      ]
+                    },
+                    "name": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "slug": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "brp_url": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "review_count": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "@type",
+                          "#text"
+                        ],
+                        "properties": {
+                          "@type": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "#text": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    },
+                    "rating_avg": {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "#text": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "#text"
+                      ]
+                    },
+                    "recommend_pct": {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "#text": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "#text"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "@type",
+              "business"
+            ]
+          }
+        },
+        "required": [
+          "current_page",
+          "per_page",
+          "total_entries",
+          "total_pages",
+          "businesses"
+        ],
+        "x-examples": {
+          "example-1": {
+            "current_page": {
+              "@type": "integer",
+              "#text": "1"
+            },
+            "per_page": {
+              "@type": "integer",
+              "#text": "30"
+            },
+            "total_entries": {
+              "@type": "integer",
+              "#text": "2"
+            },
+            "total_pages": {
+              "@type": "integer",
+              "#text": "1"
+            },
+            "businesses": {
+              "@type": "array",
+              "business": [
+                {
+                  "id": {
+                    "@type": "integer",
+                    "#text": "1"
+                  },
+                  "name": "Cory's Magic Carpets",
+                  "slug": "corys-magic-carpets",
+                  "brp_url": "http://www.surecritic.com/reviews/corys-magic-carpets",
+                  "review_count": [
+                    {
+                      "@type": "integer",
+                      "#text": "6"
+                    }
+                  ],
+                  "rating_avg": {
+                    "@type": "decimal",
+                    "#text": "3.66667"
+                  },
+                  "recommend_pct": {
+                    "@type": "decimal",
+                    "#text": "100.0"
+                  }
+                },
+                {
+                  "id": {
+                    "@type": "integer",
+                    "#text": "2"
+                  },
+                  "name": "Tim's Fancy Machines",
+                  "slug": "tims-fancy-machines",
+                  "brp_url": "http://www.surecritic.com/reviews/tims-fancy-machines",
+                  "review_count": [
+                    {
+                      "@type": "integer",
+                      "#text": "6"
+                    }
+                  ],
+                  "rating_avg": {
+                    "@type": "decimal",
+                    "#text": "3.66667"
+                  },
+                  "recommend_pct": {
+                    "@type": "decimal",
+                    "#text": "100.0"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "query-param-api-key": {
+        "name": "api_key",
+        "type": "apiKey",
+        "in": "query"
+      }
+    },
+    "responses": {
+      "403": {
+        "description": "Not Authorized. Your API-KEY was missing or invalid"
+      }
+    },
+    "parameters": {
+      "brp_url": {
+        "name": "brp_url",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The full SureCritic url you wish to extract the slug from"
+      }
+    },
+    "examples": {}
+  },
+  "security": [
+    {
+      "query-param-api-key": []
+    }
+  ]
+}
